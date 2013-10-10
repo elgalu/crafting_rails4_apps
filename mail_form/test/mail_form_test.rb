@@ -51,4 +51,10 @@ class MailFromTest < ActiveSupport::TestCase
     assert_equal ['user@example.com'], mail.from
     assert_match /Email: user@example\.com/, mail.body.encoded
   end
+
+  test 'validates absence of nickname' do
+    sample = SampleMail.new(nickname: 'Spam')
+    assert !sample.valid?
+    assert_equal ['must be blank'], sample.errors[:nickname]
+  end
 end
