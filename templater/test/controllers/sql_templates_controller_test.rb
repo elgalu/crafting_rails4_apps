@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SqlTemplatesControllerTest < ActionController::TestCase
   setup do
-    @sql_template = sql_templates(:one)
+    @sql_template = sql_templates(:users_index)
   end
 
   test "should get index" do
