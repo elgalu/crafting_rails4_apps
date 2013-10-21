@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+script:
+  - cd pdf_renderer
+  - bundle install
+  - bundle exec rake
+  - cd ../mail_form
+  - bundle install
+  - bundle exec rake
+  - cd ../templater
+  - bundle install
+  - bundle exec rake
+  - cd ../handlers
+  - bundle install
+  - bundle exec rake
+  - cd ../live_assets
+  - bundle install
+  - bundle exec rake
+
