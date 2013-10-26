@@ -2,38 +2,39 @@ language: ruby
 rvm:
   - 2.0.0
 script:
-  - cd pdf_renderer/1_prawn
+  - cd pdf_renderer/1_prawn && pwd
+  - gem install xpath
   - bundle install
-  - cd test/dummy
+  - cd test/dummy && pwd
   - mkdir -p db
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - cd ../..
+  - cd ../.. && pwd
   - bundle exec rake
-  - cd ../../mail_form
+  - cd ../../mail_form && pwd
   - bundle install
-  - cd test/dummy
+  - cd test/dummy && pwd
   - mkdir -p db
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - cd ../..
+  - cd ../.. && pwd
   - bundle exec rake
-  - cd ../templater
+  - cd ../templater && pwd
   - bundle install
   - bundle exec rake
-  - cd ../handlers
+  - cd ../handlers && pwd
   - bundle install
-  - cd test/dummy
+  - cd test/dummy && pwd
   - mkdir -p db
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - cd ../..
+  - cd ../.. && pwd
   - bundle exec rake
-  - cd ../live_assets
+  - cd ../live_assets && pwd
   - bundle install
-  - cd test/dummy
+  - cd test/dummy && pwd
   - mkdir -p db
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - cd ../..
+  - cd ../.. && pwd
   - bundle exec rake
