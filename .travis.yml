@@ -1,6 +1,11 @@
 language: ruby
 rvm:
+  - 1.9.3
   - 2.0.0
+  - ruby-head
+  - rbx-19mode
+  - rbx-20mode
+  - jruby-19mode
 script:
   - cd pdf_renderer/1_prawn && pwd
   - gem install xpath
