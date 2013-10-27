@@ -10,5 +10,15 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use debugger
-# gem 'debugger'
+platform :ruby do
+  gem 'sqlite3'
+end
+
+platform :jruby do
+  gem 'activerecord-jdbcsqlite3-adapter'
+end
+
+platform :rbx do
+  gem 'rdoc'
+  gem 'racc'
+end
