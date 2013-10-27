@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     pdf_renderer (0.0.1)
-      prawn (~> 0.12)
+      prawn (~> 1.0.0.rc2)
       rails (~> 4.0.0)
 
 GEM
@@ -27,6 +27,11 @@ GEM
       activesupport (= 4.0.0)
       arel (~> 4.0.0)
     activerecord-deprecated_finders (1.0.3)
+    activerecord-jdbc-adapter (1.3.2)
+      activerecord (>= 2.2)
+    activerecord-jdbcsqlite3-adapter (1.3.2)
+      activerecord-jdbc-adapter (~> 1.3.2)
+      jdbc-sqlite3 (~> 3.7.2)
     activesupport (4.0.0)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
@@ -36,12 +41,16 @@ GEM
     afm (0.2.0)
     arel (4.0.0)
     atomic (1.1.14)
+    atomic (1.1.14-java)
     builder (3.1.4)
     coderay (1.0.9)
     erubis (2.7.0)
+    ffi (1.9.1-java)
     hashery (2.1.1)
     hike (1.2.3)
     i18n (0.6.5)
+    jdbc-sqlite3 (3.7.2.1)
+    json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -56,13 +65,21 @@ GEM
       ruby-rc4
       ttfunk
     polyglot (0.3.3)
-    prawn (0.12.0)
-      pdf-reader (>= 0.9.0)
-      ttfunk (~> 1.0.2)
+    prawn (1.0.0.rc2)
+      afm
+      pdf-reader (>= 0.9.0, < 2.0)
+      ruby-rc4
+      ttfunk (~> 1.0.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry (0.9.12.2-java)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+      spoon (~> 0.0)
+    racc (1.4.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -80,20 +97,26 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
+    rdoc (4.0.1)
+      json (~> 1.4)
     ruby-rc4 (0.1.5)
     slop (3.4.6)
+    spoon (0.0.4)
+      ffi
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.0.0)
+    sprockets-rails (2.0.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
     thor (0.18.1)
     thread_safe (0.1.3)
+      atomic
+    thread_safe (0.1.3-java)
       atomic
     tilt (1.4.1)
     treetop (1.4.15)
@@ -103,9 +126,13 @@ GEM
     tzinfo (0.3.37)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
+  activerecord-jdbcsqlite3-adapter
   pdf_renderer!
   pry
+  racc
+  rdoc
   sqlite3
