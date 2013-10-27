@@ -14,8 +14,8 @@ class RenderingTest < ActionDispatch::IntegrationTest
   end
 
   test '.md template handler' do
-    get '/handlers/rdiscount'
-    expected = "<p>RDiscount is <em>cool</em> and <strong>fast</strong>!</p>"
+    get '/handlers/kramdown'
+    expected = "<p>Kramdown is <em>cool</em> and <strong>pure ruby</strong>!</p>"
     assert_match expected, response.body
   end
 
