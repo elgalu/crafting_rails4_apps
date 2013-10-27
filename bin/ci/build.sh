@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd pdf_renderer/1_prawn && pwd
+cd pdf_renderer && pwd
 bundle install
 cd test/dummy && pwd
 mkdir -p db
@@ -8,7 +8,7 @@ bundle exec rake db:create
 bundle exec rake db:migrate
 cd ../.. && pwd
 bundle exec rake
-cd ../../mail_form && pwd
+cd ../mail_form && pwd
 bundle install
 cd test/dummy && pwd
 mkdir -p db
