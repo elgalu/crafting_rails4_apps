@@ -17,3 +17,8 @@ end
 platform :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
 end
+
+platform :rbx do
+  gem 'rdoc'
+  gem 'racc'
+end
