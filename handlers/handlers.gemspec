@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rails", "~> 4.0.0"
   s.add_runtime_dependency "kramdown", "~> 1.2"
 
-  s.add_development_dependency "sqlite3"
+  # s.add_development_dependency "sqlite3" # See the `Gemfile`
 end
