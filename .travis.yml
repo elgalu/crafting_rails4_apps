@@ -1,9 +1,9 @@
 language: ruby
 rvm:
-  # - 1.9.3
+  - 1.9.3
   - 2.0.0
-  # - ruby-head
-  # - jruby-19mode
-  # - jruby-head
-  # - rbx-19mode
+  - ruby-head
+  - jruby-19mode
+  - jruby-head
+  - rbx-19mode
 script: ./bin/ci/build.sh
