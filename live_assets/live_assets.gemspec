@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_runtime_dependency "rails", "~> 4.0.1.rc3"
+  s.add_runtime_dependency "coffee-rails", "~> 4.0.1"
+  s.add_runtime_dependency "turbolinks", "~> 1.3"
 
   s.add_development_dependency "puma", "~> 2.6"
   # s.add_development_dependency "sqlite3"

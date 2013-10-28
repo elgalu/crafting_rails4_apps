@@ -7,7 +7,20 @@ class LiveAssetsController < ActionController::Base
       sleep 1
     end
   rescue IOError
-    puts 'Streamming connection closed by client.'
+    puts 'hello streamming connection closed.'
+    response.stream.close
+  end
+
+  def sse
+    response.headers['Cache-Control'] = 'no-cache'
+    response.headers['Content-Type']  = 'text/event-stream'
+
+    while true
+      response.stream.write "event: reloadCSS\ndata: {}\n\n"
+      sleep 1
+    end
+  rescue IOError
+    puts 'sse streamming connection closed.'
     response.stream.close
   end
 end
