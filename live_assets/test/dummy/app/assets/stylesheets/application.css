@@ -12,6 +12,7 @@
  *= require_tree .
  */
 body {
-  background-color: white;
+  color: white;
+  background-color: #888;
 }
 

@@ -15,12 +15,16 @@ class LiveAssetsController < ActionController::Base
     response.headers['Cache-Control'] = 'no-cache'
     response.headers['Content-Type']  = 'text/event-stream'
 
+    sse = LiveAssets::SSESubscriber.new
+    sse.each { |msg| response.stream.write msg }
+
     while true
       response.stream.write "event: reloadCSS\ndata: {}\n\n"
       sleep 1
     end
   rescue IOError
-    puts 'sse streamming connection closed.'
+    sse.close
     response.stream.close
+    puts 'sse streamming connection closed.'
   end
 end
