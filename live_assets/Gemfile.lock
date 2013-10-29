@@ -45,6 +45,7 @@ GEM
     builder (3.1.4)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    coderay (1.0.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -66,10 +67,15 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     puma (2.6.0)
       rack (>= 1.1, < 2.0)
     puma (2.6.0-java)
@@ -97,6 +103,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.0.1)
       json (~> 1.4)
+    slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -128,6 +135,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   live_assets!
+  pry
   puma (~> 2.6)
   racc
   rdoc

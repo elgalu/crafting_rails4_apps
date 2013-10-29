@@ -12,7 +12,7 @@ class LiveAssetsTest < ActiveSupport::TestCase
 
   test 'can subscribe to listener events' do
     # Create listener
-    l = LiveAssets.start_listener(:reload, ['test/tmp'])
+    l = LiveAssets.start_listener(:reloadCSS, ['test/tmp'])
 
     # Our subscriber is a simple array
     subscriber = []
@@ -25,11 +25,26 @@ class LiveAssetsTest < ActiveSupport::TestCase
       end
 
       # Assert we got the event
-      assert_includes subscriber, :reload
+      assert_includes subscriber, :reloadCSS
     ensure
       # Clean up
       LiveAssets.unsubscribe(subscriber)
       l.kill
+    end
+  end
+
+  test 'can subscribe to existing reloadCSS events' do
+    subscriber = []
+    LiveAssets.subscribe(subscriber)
+
+    begin
+      while subscriber.empty?
+        FileUtils.touch 'test/dummy/app/assets/stylesheets/application.css'
+      end
+
+      assert_includes subscriber, :reloadCSS
+    ensure
+      LiveAssets.unsubscribe(subscriber)
     end
   end
 end
