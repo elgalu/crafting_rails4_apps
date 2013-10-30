@@ -3,7 +3,11 @@ require 'thread'
 require 'listen'
 
 module LiveAssets
-  autoload :SSESubscriber, 'live_assets/sse_subscriber'
+  extend ActiveSupport::Autoload
+
+  eager_autoload do
+    autoload :SSESubscriber #, 'live_assets/sse_subscriber'
+  end
 
   mattr_reader :subscribers
   @@subscribers = []
