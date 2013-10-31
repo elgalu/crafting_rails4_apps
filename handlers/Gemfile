@@ -21,4 +21,9 @@ end
 platform :rbx do
   gem 'rdoc'
   gem 'racc'
+  gem 'rubysl-enumerator'
+  gem 'rubysl-rexml'
 end
+
+gem 'pry'
+gem 'pry-doc'
