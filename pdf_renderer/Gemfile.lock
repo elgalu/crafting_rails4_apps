@@ -100,6 +100,8 @@ GEM
     rdoc (4.0.1)
       json (~> 1.4)
     ruby-rc4 (0.1.5)
+    rubysl-enumerator (2.0.0)
+    rubysl-rexml (2.0.2)
     slop (3.4.6)
     spoon (0.0.4)
       ffi
@@ -135,4 +137,6 @@ DEPENDENCIES
   pry
   racc
   rdoc
+  rubysl-enumerator
+  rubysl-rexml
   sqlite3
