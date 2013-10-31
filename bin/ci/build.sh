@@ -38,4 +38,7 @@ mkdir -p db
 bundle exec rake db:create
 bundle exec rake db:migrate
 cd ../.. && pwd
-bundle exec rake
+# Only run live_assets test in 1 case to avoid concurrency issues
+if [[ $RUBY_VERSION == "rbx-2.1.1" ]]; then
+  bundle exec rake;
+fi
