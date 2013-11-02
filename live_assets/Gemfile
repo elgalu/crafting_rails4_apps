@@ -24,3 +24,6 @@ platform :rbx do
   gem 'rubysl-enumerator'
   gem 'rubysl-rexml'
 end
+
+gem 'pry'
+gem 'pry-doc'
