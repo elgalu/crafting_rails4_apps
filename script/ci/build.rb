@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
-dirs = Dir['*'].select {|d| File.directory?(d)} - ['bin']
+dirs = Dir['*'].select {|d| File.directory?(d)} - ['script']
 dirs = dirs.map { |d| File.expand_path(d) }
 
 dirs.each do |d|
 
   abort "Failed to bundle install on #{d}\n" unless system <<-BASH
     cd #{d} && pwd
-    bundle update
+    bundle install
   BASH
 
   test_dummy = File.join(d, 'test/dummy')
