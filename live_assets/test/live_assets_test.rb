@@ -50,7 +50,7 @@ class LiveAssetsTest < ActiveSupport::TestCase
 
   test 'receives timer notifications' do
     # Create a timer
-    l = LiveAssets.start_timer(:ping, 0.5)
+    l = LiveAssets.start_timer(:ping, 1)
 
     subscriber = []
     LiveAssets.subscribe(subscriber)
