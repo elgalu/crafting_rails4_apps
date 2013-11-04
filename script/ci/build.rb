@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-dirs = Dir['*'].select {|d| File.directory?(d)} - ['script']
+IGNORE_DIRS = ['script', 'travis-cookbooks']
+
+dirs = Dir['*'].select {|d| File.directory?(d)} - IGNORE_DIRS
 dirs = dirs.map { |d| File.expand_path(d) }
 
 dirs.each do |d|
@@ -21,8 +23,8 @@ dirs.each do |d|
     BASH
   end
 
-  # Only run live_assets test in 1 case to avoid concurrency issues
-  unless d =~ /live_assets/ && RUBY_ENGINE != 'rbx'
+  # Only run live_assets test in just 1 platform to avoid concurrency issues
+  unless d =~ /live_assets/ && !(RUBY_ENGINE == 'ruby' && RUBY_VERSION == '2.0.0')
     abort "Failed tests on #{d}\n" unless system <<-BASH
       cd #{d} && pwd
       bundle exec rake
