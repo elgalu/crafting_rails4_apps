@@ -29,20 +29,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Used: https://github.com/michaelklishin/sous-chef
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "travis-cookbooks/ci_environment"
-    # chef.roles_path = "../my-recipes/roles"
-    # chef.data_bags_path = "../my-recipes/data_bags"
+    # Also change username in
+    #   ci_environment/travis_build_environment/attributes/default.rb
     chef.add_recipe "build-essential"
     chef.add_recipe "git"
     chef.add_recipe "networking_basic"
     chef.add_recipe "vim"
-    chef.add_recipe "travis_build_environment"
     chef.add_recipe "java::openjdk7"
     chef.add_recipe "rvm"
     chef.add_recipe "rvm::multi"
     chef.add_recipe "nodejs::multi"
+    chef.add_recipe "travis_build_environment"
     chef.add_recipe "python::multi"
 
-
+    # chef.roles_path = "../my-recipes/roles"
+    # chef.data_bags_path = "../my-recipes/data_bags"
     # chef.add_role "web"
 
     # You may also specify custom JSON attributes:
