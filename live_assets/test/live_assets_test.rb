@@ -42,6 +42,7 @@ class LiveAssetsTest < ActiveSupport::TestCase
         FileUtils.touch 'test/dummy/app/assets/stylesheets/application.css'
       end
 
+      sleep 2
       assert_includes subscriber, :reloadCSS
     ensure
       LiveAssets.unsubscribe(subscriber)
