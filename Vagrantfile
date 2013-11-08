@@ -22,25 +22,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # http://docs.vagrantup.com/v2/provisioning/shell.html
-  config.vm.provision :shell, :inline => "apt-get update"
+  config.vm.provision :shell, :inline => "apt-get -y update"
   # config.vm.provision :shell, :path => "bootstrap.sh"
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles path, etcs...
   # Used: https://github.com/michaelklishin/sous-chef
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "travis-cookbooks/ci_environment"
+    chef.cookbooks_path = ["travis-cookbooks/ci_environment"]
     # Also change username in
     #   ci_environment/travis_build_environment/attributes/default.rb
     chef.add_recipe "build-essential"
     chef.add_recipe "git"
     chef.add_recipe "networking_basic"
     chef.add_recipe "vim"
+    chef.add_recipe "ark"
     chef.add_recipe "java::openjdk7"
     chef.add_recipe "rvm"
     chef.add_recipe "rvm::multi"
     chef.add_recipe "nodejs::multi"
-    chef.add_recipe "travis_build_environment"
     chef.add_recipe "python::multi"
+    chef.add_recipe "travis_build_environment"
+    # Sample files to keep customizing travis build env: http://goo.gl/4MksAu  http://goo.gl/IJHTpf
 
     # chef.roles_path = "../my-recipes/roles"
     # chef.data_bags_path = "../my-recipes/data_bags"
