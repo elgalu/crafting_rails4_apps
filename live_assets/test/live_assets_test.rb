@@ -42,7 +42,7 @@ class LiveAssetsTest < ActiveSupport::TestCase
         FileUtils.touch 'test/dummy/app/assets/stylesheets/application.css'
       end
 
-      assert_includes subscriber, :reloadCSS unless ENV['TRAVIS'] #TODO fix "Expected [:ping] to include :reloadCSS." on TravisCI
+      assert_includes subscriber, :reloadCSS
     ensure
       LiveAssets.unsubscribe(subscriber)
     end
@@ -62,6 +62,7 @@ class LiveAssetsTest < ActiveSupport::TestCase
     ensure
       # Clean up
       LiveAssets.unsubscribe(subscriber)
+      l.kill
     end
   end
 end

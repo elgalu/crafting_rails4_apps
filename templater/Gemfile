@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 platform :rbx do
   gem 'rdoc'
   gem 'racc'
-  gem 'rubysl-enumerator'
-  gem 'rubysl-rexml'
+  gem 'rubysl' # this requires all stdlib on Rubinius
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

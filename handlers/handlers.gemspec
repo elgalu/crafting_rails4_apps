@@ -7,11 +7,11 @@ require "handlers/version"
 Gem::Specification.new do |s|
   s.name        = "handlers"
   s.version     = Handlers::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Handlers."
-  s.description = "TODO: Description of Handlers."
+  s.authors     = ["Jose Valim"]
+  s.email       = ["idk@gmail.com"]
+  s.homepage    = "http://pragprog.com/book/jvrails2/crafting-rails-4-applications"
+  s.summary     = "Crafting Rails 4 Apps"
+  s.description = s.summary
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
