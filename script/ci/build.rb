@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-IGNORE_DIRS = ['script']
+IGNORE_DIRS = ['script', 'live_assets']
 
 dirs = Dir['*'].select {|d| File.directory?(d)} - IGNORE_DIRS
 dirs = dirs.map { |d| File.expand_path(d) }
@@ -8,8 +8,8 @@ dirs = dirs.map { |d| File.expand_path(d) }
 dirs.each do |d|
 
   # Only run live_assets test in just 1 platform to avoid concurrency issues
-  perform_test = !(d =~ /live_assets/) || (RUBY_ENGINE == 'ruby' && RUBY_VERSION == '2.0.0')
-  next unless perform_test
+  # perform_test = !(d =~ /live_assets/) || (RUBY_ENGINE == 'ruby' && RUBY_VERSION == '2.0.0')
+  # next unless perform_test
 
   abort "Failed to bundle install on #{d}\n" unless system <<-BASH
     cd #{d} && pwd
