@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class FlashTest < ActionController::TestCase
-  tests UserController
+  tests UsersController
 
   test 'sets notice message on successful creation' do
     post :create, user: { name: 'Leo Gallucci' }
@@ -18,5 +18,18 @@ class FlashTest < ActionController::TestCase
     user = User.create!(name: 'Leo Gallucci')
     delete :destroy, id: user.id
     assert_equal 'User was successfully destroyed.', flash[:notice]
+  end
+
+  test 'sets alert messages from the controller scope' do
+    begin
+      I18n.backend.store_translations :en,
+        flash: { users: { destroy: { alert: 'Cannot destroy!' } } }
+
+      user = User.create!(name: 'Undestroyable')
+      delete :destroy, id: user.id
+      assert_equal 'Cannot destroy!', flash[:alert]
+    ensure
+      I18n.reload!
+    end
   end
 end
