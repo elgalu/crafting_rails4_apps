@@ -24,6 +24,7 @@ dirs.each do |d|
       mkdir -p db
       bundle exec rake db:create
       bundle exec rake db:migrate
+      bundle exec rake db:test:clone
     BASH
   end
 
