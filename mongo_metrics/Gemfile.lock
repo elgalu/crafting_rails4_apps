@@ -12,6 +12,7 @@ PATH
   remote: .
   specs:
     mongo_metrics (0.0.1)
+      jquery-rails (~> 3.0.4)
       rails (~> 4.0.1)
 
 GEM
@@ -50,10 +51,14 @@ GEM
     ffi2-generators (0.1.1)
     hike (1.2.3)
     i18n (0.6.5)
+    jquery-rails (3.0.4)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marco-polo (1.1.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
@@ -319,6 +324,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
+  marco-polo
   mongo_metrics!
   mongoid (~> 4.0.0)!
   pry

@@ -290,7 +290,7 @@ GEM
     rubysl-weakref (2.0.0)
     rubysl-webrick (2.0.0)
     rubysl-xmlrpc (2.0.0)
-    rubysl-yaml (2.0.3)
+    rubysl-yaml (2.0.4)
     rubysl-zlib (2.0.1)
     slop (3.4.7)
     spoon (0.0.4)
