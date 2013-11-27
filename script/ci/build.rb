@@ -11,6 +11,13 @@ dirs.each do |d|
   # perform_test = !(d =~ /live_assets/) || (RUBY_ENGINE == 'ruby' && RUBY_VERSION == '2.0.0')
   # next unless perform_test
 
+  # Doesn't work on Rubinius:
+  perform_test = !(d =~ /mongo_metrics/) || (RUBY_ENGINE != 'rbx')
+  unless perform_test
+    puts "Skipped #{d} with #{RUBY_ENGINE}-#{RUBY_VERSION}"
+    next
+  end
+
   abort "Failed to bundle install on #{d}\n" unless system <<-BASH
     cd #{d} && pwd
     bundle update
