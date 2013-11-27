@@ -14,6 +14,7 @@ gemspec
 # gem 'debugger'
 
 # mongoid 4.0.0 has not been yet (2013) released so moved from the gemspec to here
+# gem 'mongoid', '~> 4.0.0', github: 'elgalu/mongoid', branch: 'patch-1' # Got undefined method 'parent' for nil:NilClass after `rails g mongoid:config`
 gem 'mongoid', '~> 4.0.0', github: 'mongoid/mongoid'
 
 platform :ruby do
