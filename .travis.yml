@@ -9,4 +9,6 @@ rvm:
   - jruby-1.7.8
   - rbx-2.2.1
 
+before_install: gem install bundler --pre
+
 script: ./script/ci/build.rb
