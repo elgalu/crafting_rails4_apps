@@ -18,26 +18,26 @@ dirs.each do |d|
     next
   end
 
+  bundle_gemfile = File.join(d, 'Gemfile')
+  test_dummy     = File.join(d, 'test/dummy')
+
   abort "Failed to bundle install on #{d}\n" unless system <<-BASH
     cd #{d} && pwd
-    bundle install --jobs 4 --retry 3
+    BUNDLE_GEMFILE=#{bundle_gemfile} bundle install --jobs 8 --retry 5
   BASH
-
-  test_dummy = File.join(d, 'test/dummy')
 
   if File.exists?(test_dummy)
     abort "Failed to create and migrate databases on #{test_dummy}\n" unless system <<-BASH
       cd #{test_dummy} && pwd
       mkdir -p db
-      bundle exec rake db:create
-      bundle exec rake db:migrate
+      BUNDLE_GEMFILE=#{bundle_gemfile} bundle exec rake db:create
+      BUNDLE_GEMFILE=#{bundle_gemfile} bundle exec rake db:migrate
     BASH
-    system %Q{bundle exec rake db:test:clone} unless d =~ /mongo_metrics/
   end
 
   abort "Failed tests on #{d}\n" unless system <<-BASH
     cd #{d} && pwd
-    bundle exec rake
+    BUNDLE_GEMFILE=#{bundle_gemfile} bundle exec rake
   BASH
 
 end
