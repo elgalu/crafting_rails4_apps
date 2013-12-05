@@ -31,8 +31,8 @@ dirs.each do |d|
       mkdir -p db
       bundle exec rake db:create
       bundle exec rake db:migrate
-      bundle exec rake db:test:clone
     BASH
+    system %Q{bundle exec rake db:test:clone} unless d =~ /mongo_metrics/
   end
 
   abort "Failed tests on #{d}\n" unless system <<-BASH
