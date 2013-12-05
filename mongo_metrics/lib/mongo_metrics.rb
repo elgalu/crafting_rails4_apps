@@ -1,7 +1,8 @@
 require 'mongoid'
-require 'mongo_metrics/engine'
 require 'active_support/notifications'
 require 'jquery-rails' # to fix https://github.com/rails/rails/commit/007f5670
+require 'mongo_metrics/engine'
+require 'mongo_metrics/csv_streamer'
 
 module MongoMetrics
   EVENT = 'process_action.action_controller'

@@ -30,3 +30,4 @@ end
 gem 'pry'
 gem 'pry-doc'
 gem 'marco-polo' # shows your app name and environment in your console prompt so you don't accidentally break production
+gem 'puma' # use puma instead of webrick
