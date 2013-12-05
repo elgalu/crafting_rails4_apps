@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_runtime_dependency "rails", "~> 4.0.2"
+  s.add_runtime_dependency "railties", "~> 4.0.2"
+  s.add_runtime_dependency "sprockets-rails", "~> 2.0.1"
   s.add_runtime_dependency "jquery-rails", "~> 3.0.4"
   s.add_runtime_dependency "mongoid", "~> 4.0.0.alpha1"
 end
