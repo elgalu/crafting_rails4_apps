@@ -10,8 +10,10 @@ rvm:
   - rbx-2.2.1
 
 before_install:
-- gem update --system
-- gem install bundler --pre
+- travis_retry gem update --system
+- travis_retry gem install bundler --pre
+- gem --version
+- bundle --version
 
 script:
 - travis_retry ruby script/ci/build.rb
